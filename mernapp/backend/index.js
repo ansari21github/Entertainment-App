@@ -8,6 +8,7 @@ const tvSeriesRoute = require('./Routes/tvSeries');
 const trendingRoute = require('./Routes/trending');
 const recommendedRoute = require('./Routes/recommended');
 const bodyParser = require('body-parser');
+const path = require("path");
 // const bookmarkRoutes = require('./Routes/bookmarkRoutes');
 const bookmarkRoutes = require('./Routes/BookmarkRoutes');
 app.use(cors());
@@ -27,6 +28,13 @@ app.use('/api/tv-series', tvSeriesRoute);
 app.use('/api/trending', trendingRoute);
 app.use('/api/recommended', recommendedRoute);
 app.use("/api/bookmark", bookmarkRoutes);
+
+// serving the frontend
+app.use(express.static(path.join(__dirname, '../build')));
+app.get("*", function (req,res) {
+res.sendFile(path.join(__dirname, '../build/index.html'))
+});
+
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
