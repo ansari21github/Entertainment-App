@@ -1,5 +1,5 @@
 const express = require('express')
-// const cors = require('cors');
+const cors = require('cors');
 const app = express()
 const port = 5000
 const mongoDB = require("./db")
@@ -9,9 +9,9 @@ const trendingRoute = require('./Routes/trending');
 const recommendedRoute = require('./Routes/recommended');
 const bodyParser = require('body-parser');
 const path = require("path");
-// const bookmarkRoutes = require('./Routes/bookmarkRoutes');
 const bookmarkRoutes = require('./Routes/BookmarkRoutes');
-// app.use(cors());
+
+app.use(cors());
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header(
