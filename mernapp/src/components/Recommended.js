@@ -18,7 +18,9 @@ const Recommended = ({ searchTerm }) => {
   useEffect(() => {
     const fetchRecommended = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/recommended');
+        // const response = await axios.get('http://localhost:5000/api/recommended');
+        const response = await axios.get('https://entertainment-app-backend.onrender.com/recommended');
+
         setRecommended(response.data);
       } catch (error) {
         console.error(error);

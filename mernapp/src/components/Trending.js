@@ -19,10 +19,11 @@ const Trending = ({ searchTerm }) => {
   const dispatch = useDispatch();
   const [trendingList, setTrendingList] = useState([]); 
   const bookmarks = useSelector((state) => state.bookmarks);
-
+  // https://entertainment-app-backend.onrender.com
   
   useEffect(() => {
-    fetch('http://localhost:5000/api/trending')
+    // fetch('http://localhost:5000/api/trending')
+    fetch('https://entertainment-app-backend.onrender.com/trending')
       .then((response) => response.json())
       .then((data) => {
         console.log('Trending data:', data); // Add this line to log the data

@@ -8,11 +8,12 @@ function Login() {
     let navigate = useNavigate()
 
     const dispatch = useDispatch();
-
+    // https://entertainment-app-backend.onrender.com
     const handleSubmit = async (e) => {
       e.preventDefault();
       console.log( JSON.stringify({ email: credentials.email, password: credentials.password }))
-      const response = await fetch("http://localhost:5000/api/loginuser", {
+      // const response = await fetch("http://localhost:5000/api/loginuser", {
+      const response = await fetch("https://entertainment-app-backend.onrender.com/api/loginuser", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

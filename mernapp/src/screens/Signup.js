@@ -3,12 +3,13 @@ import { useNavigate, Link } from 'react-router-dom'
 import { MdMovie } from "react-icons/md";
 function Signup() {
     const [credentials, setCredentials] = useState({email: "", password: "", repeat_password:"" })
-
+    // https://entertainment-app-backend.onrender.com
     let navigate = useNavigate()
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const response = await fetch("http://localhost:5000/api/createuser", {
+      // const response = await fetch("http://localhost:5000/api/createuser", {
+      const response = await fetch("https://entertainment-app-backend.onrender.com/api/createuser", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

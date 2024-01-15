@@ -19,11 +19,12 @@ const Movies = () => {
   const bookmarks = useSelector((state) => state.bookmarks);
   const [searchTerm, setSearchTerm] = useState('');
 
- 
+  // https://entertainment-app-backend.onrender.com
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/movies');
+        // const response = await axios.get('http://localhost:5000/api/movies');
+        const response = await axios.get('https://entertainment-app-backend.onrender.com/movies');
         setMovies(response.data);
       } catch (error) {
         console.error(error);

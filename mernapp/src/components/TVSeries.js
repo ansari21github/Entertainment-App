@@ -18,11 +18,12 @@ const TVSeries = () => {
   const [tvSeries, setTVSeries] = useState([]);
   const bookmarks = useSelector((state) => state.bookmarks);
   const [searchTerm, setSearchTerm] = useState('');
-
+  // https://entertainment-app-backend.onrender.com
   useEffect(() => {
     const fetchTVSeries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/tv-series');
+        // const response = await axios.get('http://localhost:5000/api/tv-series');
+        const response = await axios.get('https://entertainment-app-backend.onrender.com/tv-series');
         setTVSeries(response.data);
       } catch (error) {
         console.error(error);

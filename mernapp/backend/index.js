@@ -1,17 +1,15 @@
 const express = require('express')
 const cors = require('cors');
 const app = express()
-// const port = 5000
+const port = 5000
 const mongoDB = require("./db")
 const moviesRoute = require('./Routes/movies');
 const tvSeriesRoute = require('./Routes/tvSeries');
 const trendingRoute = require('./Routes/trending');
 const recommendedRoute = require('./Routes/recommended');
 const bodyParser = require('body-parser');
-const path = require("path");
 const bookmarkRoutes = require('./Routes/BookmarkRoutes');
-const dotenv = require("dotenv")
-const port = process.env.PORT || 5000;
+
 app.use(cors());
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -21,7 +19,6 @@ app.use(cors());
 //   );
 //   next();
 // });
-dotenv.config()
 app.use(bodyParser.json());
 app.use(express.json())
 app.use('/api', require("./Routes/createUser"));
@@ -31,11 +28,7 @@ app.use('/api/trending', trendingRoute);
 app.use('/api/recommended', recommendedRoute);
 app.use("/api/bookmark", bookmarkRoutes);
 
-// serving the frontend
-app.use(express.static(path.join(__dirname, '../build')));
-app.get("*", function (req,res) {
-res.sendFile(path.join(__dirname, '../build/index.html'))
-});
+
 
 app.get('/', function (req, res) {
   res.send('Hello World')

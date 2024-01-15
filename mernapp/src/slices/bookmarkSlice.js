@@ -4,14 +4,15 @@ import axios from 'axios';
 
 const localStorageKey = 'bookmarks';
 
-
+// https://entertainment-app-backend.onrender.com
 export const getBookmarks = createAsyncThunk(
   'bookmarks/getBookmarks',
   async (_, { getState  }) => {
     try {
       const userEmail = localStorage.getItem('userEmail');
       if (userEmail) {
-        const response = await axios.get(`http://localhost:5000/api/bookmark/bookmarks/${userEmail}`);
+        // const response = await axios.get(`http://localhost:5000/api/bookmark/bookmarks/${userEmail}`);
+        const response = await axios.get(`https://entertainment-app-backend.onrender.com/bookmark/bookmarks/${userEmail}`);
 
         // Extract the "item" property from each bookmarkObject
         const transformedBookmarks = response.data.bookmarks.map(bookmarkObject => bookmarkObject.item);
@@ -101,7 +102,8 @@ export const removeFromBookmarked = createAsyncThunk(
   async ({ item }, { getState }) => {
     try {
       const userEmail = localStorage.getItem('userEmail');
-      await axios.delete('http://localhost:5000/api/bookmark/remove', {
+      // await axios.delete('http://localhost:5000/api/bookmark/remove', {
+      await axios.delete('https://entertainment-app-backend.onrender.com/bookmark/remove', {
         data: { email: userEmail, data: item },
       });
       return item;
@@ -116,7 +118,8 @@ export const addToBookmarks = createAsyncThunk(
   async (item, { getState }) => {
     try {
       const userEmail = localStorage.getItem('userEmail');
-      await axios.post('http://localhost:5000/api/bookmark/add', {
+      // await axios.post('http://localhost:5000/api/bookmark/add', {
+      await axios.post('https://entertainment-app-backend.onrender.com/bookmark/add', {
         email: userEmail,
         data: item,
       });

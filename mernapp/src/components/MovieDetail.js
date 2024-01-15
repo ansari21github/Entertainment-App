@@ -10,11 +10,12 @@ import StarRating from "./StarRating";
 const MovieDetail = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
-
+  // https://entertainment-app-backend.onrender.com
   useEffect(() => {
     const fetchMovieDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/movies/${id}`);
+        // const response = await axios.get(`http://localhost:5000/api/movies/${id}`);
+        const response = await axios.get(`https://entertainment-app-backend.onrender.com/movies/${id}`);
         setMovie(response.data);
       } catch (error) {
         console.error(error);
