@@ -23,7 +23,7 @@ const Trending = ({ searchTerm }) => {
   
   useEffect(() => {
     // fetch('http://localhost:5000/api/trending')
-    fetch('https://entertainment-app-backend.onrender.com/trending')
+    fetch('https://entertainment-app-backend.onrender.com/api/trending')
       .then((response) => response.json())
       .then((data) => {
         console.log('Trending data:', data); // Add this line to log the data

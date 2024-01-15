@@ -24,7 +24,7 @@ const Movies = () => {
     const fetchMovies = async () => {
       try {
         // const response = await axios.get('http://localhost:5000/api/movies');
-        const response = await axios.get('https://entertainment-app-backend.onrender.com/movies');
+        const response = await axios.get('https://entertainment-app-backend.onrender.com/api/movies');
         setMovies(response.data);
       } catch (error) {
         console.error(error);

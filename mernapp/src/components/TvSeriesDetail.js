@@ -12,7 +12,7 @@ const TvSeriesDetail = () => {
     const fetchTVSeries = async () => {
       try {
         // const response = await axios.get(`http://localhost:5000/api/tv-series/${id}`);
-        const response = await axios.get(`https://entertainment-app-backend.onrender.com/tv-series/${id}`);
+        const response = await axios.get(`https://entertainment-app-backend.onrender.com/api/tv-series/${id}`);
         setTVSeries(response.data);
       } catch (error) {
         console.error(error);
